@@ -56,7 +56,7 @@ h2 { font-size: clamp(30px, 6vw, 50px); }
 .botao[disabled] { opacity: 0.6; cursor: progress; transform: none; }
 
 /* capa */
-.capa { position: relative; overflow: hidden; padding: 218px 0 250px; text-align: center; background: linear-gradient(170deg, var(--marinho), var(--azul-escuro) 75%); }
+.capa { position: relative; overflow: hidden; padding: 218px 0 276px; text-align: center; background: linear-gradient(170deg, var(--marinho), var(--azul-escuro) 75%); }
 .capa .dentro { position: relative; z-index: 3; display: flex; flex-direction: column; align-items: center; gap: 20px; max-width: 800px; }
 .capa .sub { font-size: clamp(17px, 2.4vw, 20px); color: var(--suave); max-width: 34em; }
 .capa .nota { font-weight: 700; font-size: 15px; }
@@ -330,7 +330,9 @@ form .botao { width: 100%; background: var(--azul); color: var(--branco); box-sh
     });
     if (!parado) flutuantes.forEach(function (f) {
       var s = f.parentNode.getBoundingClientRect();
-      f.style.setProperty("--py", ((s.top + s.height / 2 - h / 2) * -f.dataset.vel).toFixed(1) + "px");
+      // na capa o deslocamento começa em zero, para os recortes não subirem sobre o texto antes de rolar
+      var ref = f.parentNode.classList.contains("capa") ? s.top : s.top + s.height / 2 - h / 2;
+      f.style.setProperty("--py", (ref * -f.dataset.vel).toFixed(1) + "px");
     });
     var i = inscricao.getBoundingClientRect();
     el("cta").classList.toggle("visivel", y > h * 0.7 && i.top > h * 0.85);
