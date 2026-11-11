@@ -161,7 +161,8 @@ label { display: flex; flex-direction: column; gap: 6px; font-weight: 700; font-
 input[type="text"], input[type="number"], input[type="tel"], select { font: 500 16px var(--fonte); color: var(--marinho); background: var(--branco); border: 2px solid var(--linha); border-radius: 14px; padding: 13px 14px; width: 100%; min-width: 0; }
 input:focus, select:focus { outline: 3px solid var(--azul); outline-offset: 1px; border-color: var(--azul); }
 .dupla { display: grid; grid-template-columns: 104px minmax(0, 1fr); gap: 12px; }
-.aceite { display: grid; grid-template-columns: 20px minmax(0, 1fr); gap: 10px; align-items: start; font-weight: 500; font-size: 13px; line-height: 1.45; color: var(--apoio); }
+.aceite { display: grid; grid-template-columns: 20px minmax(0, 1fr); gap: 10px; align-items: start; font-weight: 500; font-size: 13px; line-height: 1.45; color: var(--apoio); background: var(--fundo); border: 2px solid var(--linha); border-radius: 14px; padding: 14px; }
+.aceite strong { color: var(--marinho); }
 .aceite input { width: 20px; height: 20px; margin: 1px 0 0; accent-color: var(--azul-escuro); }
 form .botao { width: 100%; }
 .aviso { font-weight: 700; font-size: 14px; color: var(--erro); min-height: 1.4em; }
@@ -351,7 +352,7 @@ form .botao { width: 100%; }
             <option>Outro</option>
           </select>
         </label>
-        <label class="aceite" for="aceite"><input type="checkbox" id="aceite" name="aceite" required><span>Autorizo o Instituto Evereste a usar estes dados para a pré-inscrição e para me avisar sobre o curso Agente 01.</span></label>
+        <label class="aceite" for="aceite"><input type="checkbox" id="aceite" name="aceite" required><span><strong>Proteção de dados (LGPD).</strong> Autorizo o Instituto Evereste a usar meu nome, idade, área e WhatsApp só para a pré-inscrição e os avisos do curso Agente 01, conforme a Lei 13.709/2018. Posso pedir a exclusão dos meus dados a qualquer momento.</span></label>
         <button type="submit" class="botao" id="enviar">Garantir meu acesso gratuito</button>
         <p class="miudo">Sem spam. Só o lembrete da estreia.</p>
         <p class="aviso" id="aviso" role="alert"></p>
@@ -414,6 +415,9 @@ form .botao { width: 100%; }
      shortcut: sem proteção contra robôs além das regras do banco; se chegar lixo, ligar o App Check. */
   var BANCO = "https://firestore.googleapis.com/v1/projects/agente01-preinscricao/databases/(default)/documents/preinscricoes";
   var CHAVE = "AIzaSyBWJpwf0MJJ8gJCS8NNBwRuwx3nVBp71Cg"; // chave pública do app web (não é segredo)
+  // URL /exec do Apps Script da planilha (docs/agente01/pre-inscricao-planilha.gs): grava na planilha e avisa por e-mail.
+  // Vazia, a página só grava no Firestore.
+  var PLANILHA = "https://script.google.com/macros/s/AKfycby0KsHQEHYv0fF4bm23IwWv9euFIPmfSTP9-USl6JFRWTraI8ZNXl52AVaOn014drcy/exec";
   var form = el("form"), aviso = el("aviso"), enviar = el("enviar"), whats = el("whatsapp");
   var digitos = function () { return whats.value.replace(/\D/g, "").slice(0, 11); };
 
@@ -449,7 +453,12 @@ form .botao { width: 100%; }
     enviar.textContent = "Enviando…";
     fetch(BANCO + "?documentId=" + n + "&key=" + CHAVE, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(dados) })
       .then(function (r) {
-        if (r.ok) { pronto(nome, false); return; }
+        if (r.ok) {
+          // aviso à planilha: sem esperar resposta (o Apps Script não libera leitura entre sites); se falhar, o Firestore já tem o registro
+          if (PLANILHA) fetch(PLANILHA, { method: "POST", mode: "no-cors", body: JSON.stringify({ nome: nome, idade: dados.fields.idade.integerValue, trabalho: el("trabalho").value, whatsapp: n }) }).catch(function () {});
+          pronto(nome, false);
+          return;
+        }
         if (r.status === 409) { pronto(nome, true); return; }
         throw new Error(String(r.status));
       })
