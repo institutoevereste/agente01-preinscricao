@@ -113,8 +113,8 @@ h2 { font-size: clamp(30px, 5.6vw, 52px); line-height: 1.06; }
 .inscricao .olho, .inscricao .destaque { color: var(--ciano); }
 .inscricao .texto > p { color: var(--claro); max-width: 30em; }
 .motivos { display: flex; flex-direction: column; gap: 12px; font-weight: 700; }
-.motivos li { display: grid; grid-template-columns: 22px minmax(0, 1fr); gap: 12px; align-items: start; }
-.motivos li::before { content: ""; width: 22px; height: 22px; margin-top: 3px; border-radius: 50%; border: 6px solid var(--ciano); }
+.motivos li { position: relative; padding-left: 26px; }
+.motivos li::before { content: ""; position: absolute; left: 2px; top: 0.58em; width: 10px; height: 10px; border-radius: 50%; background: var(--ciano); }
 .quem { display: grid; grid-template-columns: 62px minmax(0, 1fr); align-items: center; gap: 14px; font-size: 15px; line-height: 1.35; }
 .quem img { width: 62px; height: 62px; border-radius: 50%; }
 .inscricao .trofeu { width: clamp(110px, 20vw, 170px); }
