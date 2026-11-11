@@ -1,0 +1,17 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Pré-inscrição do curso Agente 01: a página só cria registros. Ninguém lê, altera ou apaga pelo site;
+    // a lista é vista no console do Firebase. O id do documento é o WhatsApp, então cada número entra uma vez.
+    match /preinscricoes/{id} {
+      allow create: if request.resource.data.keys().hasOnly(['nome', 'idade', 'trabalho', 'whatsapp', 'consentimento'])
+        && request.resource.data.keys().hasAll(['nome', 'idade', 'trabalho', 'whatsapp', 'consentimento'])
+        && request.resource.data.nome is string && request.resource.data.nome.size() >= 3 && request.resource.data.nome.size() <= 120
+        && request.resource.data.idade is int && request.resource.data.idade >= 14 && request.resource.data.idade <= 100
+        && request.resource.data.trabalho is string && request.resource.data.trabalho.size() >= 2 && request.resource.data.trabalho.size() <= 60
+        && request.resource.data.whatsapp is string && request.resource.data.whatsapp.matches('^[1-9][0-9]{9,10}$')
+        && request.resource.data.whatsapp == id
+        && request.resource.data.consentimento == true;
+    }
+  }
+}
