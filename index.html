@@ -5,9 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
 <title>Agente 01 · Pré-inscrição</title>
-<meta name="description" content="Agente 01, curso gratuito. Estreia em 1º de dezembro. As vagas são limitadas: a pré-inscrição garante o seu acesso.">
-<meta property="og:title" content="Agente 01 · Pré-inscrição">
-<meta property="og:description" content="Monte um agente de IA que trabalha sozinho. Curso gratuito, estreia em 1º de dezembro. Vagas limitadas.">
+<meta name="description" content="Monte no Claude, sem programar, um agente que trabalha por você todo dia. Curso gratuito, estreia em 1º de dezembro.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://institutoevereste.github.io/agente01-preinscricao/">
+<meta property="og:title" content="Agente 01 · Curso gratuito de agente de IA">
+<meta property="og:description" content="Monte no Claude, sem programar, um agente que trabalha por você todo dia. Estreia em 1º/12.">
+<meta property="og:image" content="https://institutoevereste.github.io/agente01-preinscricao/img/previa.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800;900&display=swap">
@@ -42,7 +48,7 @@ a { color: inherit; }
 .dentro { max-width: 1120px; margin: 0 auto; padding-inline: max(20px, env(safe-area-inset-left, 0px)) max(20px, env(safe-area-inset-right, 0px)); }
 main { display: flex; flex-direction: column; gap: clamp(72px, 11vw, 132px); padding-block: clamp(28px, 5vw, 56px) clamp(72px, 11vw, 132px); }
 h1, h2 { font-weight: 900; letter-spacing: -0.035em; text-wrap: balance; }
-h1 { font-size: clamp(40px, 10.4vw, 86px); line-height: 0.98; text-transform: uppercase; }
+h1 { font-size: clamp(36px, 9vw, 70px); line-height: 0.98; text-transform: uppercase; }
 h2 { font-size: clamp(30px, 5.6vw, 52px); line-height: 1.06; }
 .destaque { color: var(--azul); }
 .olho { display: flex; align-items: center; gap: 12px; font-weight: 800; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--azul-escuro); }
@@ -108,6 +114,37 @@ h2 { font-size: clamp(30px, 5.6vw, 52px); line-height: 1.06; }
 .peca.ativa .linha-peca img { transform: scale(1.06) rotate(-5deg); }
 .mote { font-weight: 900; font-size: clamp(22px, 3.6vw, 32px); letter-spacing: -0.03em; }
 
+/* prova: depoimento e um exemplo marcado do resumo que o agente entrega */
+.prova { display: grid; gap: 34px; align-items: center; }
+.prova blockquote { margin: 0; font-weight: 700; font-size: clamp(19px, 2.6vw, 24px); line-height: 1.45; letter-spacing: -0.01em; }
+.autor { display: grid; grid-template-columns: 56px minmax(0, 1fr); align-items: center; gap: 14px; font-size: 15px; line-height: 1.35; }
+.autor img { width: 56px; height: 56px; border-radius: 50%; }
+.exemplo { background: var(--branco); border: 2px solid var(--linha); border-radius: 28px; padding: 24px; display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.exemplo .selo { align-self: flex-start; font-weight: 800; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--azul-escuro); border: 2px solid var(--azul-escuro); border-radius: 999px; padding: 5px 12px; }
+.exemplo h3 { font-weight: 900; font-size: 22px; letter-spacing: -0.02em; line-height: 1.2; }
+.exemplo dl { margin: 0; display: flex; flex-direction: column; }
+.exemplo dl div { display: grid; grid-template-columns: 118px minmax(0, 1fr); gap: 12px; padding-block: 12px; border-top: 2px solid var(--linha); font-size: 15px; }
+.exemplo dt { font-weight: 800; }
+.exemplo dd { margin: 0; color: var(--apoio); }
+@media (min-width: 900px) { .prova { grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: 64px; } }
+
+/* para quem é, quem ensina e perguntas frequentes */
+.blocos { display: flex; flex-direction: column; gap: 34px; }
+.pares { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+.pares > div { border-radius: 28px; padding: 26px; display: flex; flex-direction: column; gap: 12px; }
+.pares .sim { background: var(--azul-escuro); color: var(--branco); }
+.pares .nao { background: var(--cartao); }
+.pares h3 { font-weight: 900; font-size: 22px; letter-spacing: -0.02em; }
+.pares ul { display: flex; flex-direction: column; gap: 8px; font-weight: 700; }
+.ensina { display: grid; gap: 26px; align-items: center; }
+.ensina img { width: 132px; height: 132px; border-radius: 50%; }
+.ensina p { max-width: 36em; }
+@media (min-width: 700px) { .ensina { grid-template-columns: 132px minmax(0, 1fr); gap: 40px; } }
+.faq details { border-top: 2px solid var(--linha); padding-block: 18px; }
+.faq details:last-child { border-bottom: 2px solid var(--linha); }
+.faq summary { cursor: pointer; font-weight: 800; font-size: 19px; }
+.faq details p { color: var(--apoio); margin-top: 10px; max-width: 40em; }
+
 /* pré-inscrição: um cartão marinho só, com o formulário dentro */
 .inscricao { background: var(--marinho); color: var(--branco); border-radius: 40px; padding: clamp(24px, 5vw, 60px); display: grid; gap: 34px; align-items: center; scroll-margin-top: 24px; }
 .inscricao .olho, .inscricao .destaque { color: var(--ciano); }
@@ -115,8 +152,7 @@ h2 { font-size: clamp(30px, 5.6vw, 52px); line-height: 1.06; }
 .motivos { display: flex; flex-direction: column; gap: 12px; font-weight: 700; }
 .motivos li { position: relative; padding-left: 26px; }
 .motivos li::before { content: ""; position: absolute; left: 2px; top: 0.58em; width: 10px; height: 10px; border-radius: 50%; background: var(--ciano); }
-.quem { display: grid; grid-template-columns: 62px minmax(0, 1fr); align-items: center; gap: 14px; font-size: 15px; line-height: 1.35; }
-.quem img { width: 62px; height: 62px; border-radius: 50%; }
+.miudo { font-size: 13px; color: var(--apoio); text-align: center; }
 .inscricao .trofeu { width: clamp(110px, 20vw, 170px); }
 @media (min-width: 900px) { .inscricao { grid-template-columns: minmax(0, 1fr) minmax(0, 440px); gap: 56px; } }
 form, .sucesso { background: var(--branco); color: var(--marinho); border-radius: 28px; padding: 26px 22px; display: flex; flex-direction: column; gap: 16px; min-width: 0; }
@@ -157,24 +193,42 @@ form .botao { width: 100%; }
 <main>
   <section class="capa dentro">
     <div class="texto">
-      <p class="olho">Curso gratuito</p>
-      <h1>Monte um agente de IA que trabalha <span class="destaque">sozinho.</span></h1>
-      <p class="sub">No Agente 01 você monta, peça por peça, um agente dentro do Claude. As aulas têm de dois a quatro minutos e o curso estreia em 1º de dezembro.</p>
+      <p class="olho">Curso gratuito · estreia em 1º/12</p>
+      <h1>Monte um agente de IA que trabalha por você <span class="destaque">todo dia.</span></h1>
+      <p class="sub">Ele lê seu e-mail, confere sua agenda e te entrega o que importa, na hora que você escolher. Você monta no Claude, peça por peça, em aulas de 2 a 4 minutos. Sem programar.</p>
       <div class="acoes">
-        <a class="botao" href="#inscricao">Fazer minha pré-inscrição</a>
+        <a class="botao" href="#inscricao">Quero meu acesso gratuito</a>
         <a class="botao contorno" href="#metodo">Ver as seis peças</a>
       </div>
-      <p class="nota">As vagas são limitadas. A pré-inscrição garante o seu acesso.</p>
+      <p class="nota">Leva 20 segundos. O lembrete da estreia chega no seu WhatsApp.</p>
     </div>
-    <div class="palco" aria-hidden="true"><img class="boia" src="img/mao-robotica.webp" alt="" width="480" height="480"></div>
+    <div class="palco"><img class="boia" src="img/mao-robotica.webp" alt="Mão robótica" width="480" height="480"></div>
+  </section>
+
+  <section class="prova dentro" aria-labelledby="t-prova">
+    <div class="texto">
+      <p class="olho" id="t-prova">Como é na prática</p>
+      <blockquote>“Eu uso um agente assim todo dia. Ele se chama Zenith. De manhã, ele lê meu e-mail, minha agenda e minhas tarefas e me manda o dia resumido: o que vence hoje, o que espera resposta e o primeiro passo. Eu leio em 1 minuto. No Agente 01, você monta o seu.”</blockquote>
+      <p class="autor"><img src="img/avatar.webp" alt="Marllon Costa" width="200" height="200" loading="lazy"><span><strong>Marllon Costa</strong><br>Criador do curso Agente 01</span></p>
+    </div>
+    <div class="exemplo revela">
+      <span class="selo">Exemplo ilustrativo</span>
+      <h3>Bom dia. Seu dia em 1 minuto.</h3>
+      <dl>
+        <div><dt>Vence hoje</dt><dd>Relatório mensal, até as 17h</dd></div>
+        <div><dt>Espera resposta</dt><dd>2 e-mails de fornecedores</dd></div>
+        <div><dt>Na agenda</dt><dd>Reunião de equipe às 9h</dd></div>
+        <div><dt>Primeiro passo</dt><dd>Responder o orçamento antes da reunião</dd></div>
+      </dl>
+    </div>
   </section>
 
   <section class="sobre dentro" aria-labelledby="t-chat">
-    <div class="palco revela" aria-hidden="true"><img class="boia" src="img/cerebro-de-vidro.webp" alt="" width="480" height="480" loading="lazy"></div>
+    <div class="palco revela"><img class="boia" src="img/cerebro-de-vidro.webp" alt="Cérebro de vidro" width="480" height="480" loading="lazy"></div>
     <div class="texto">
       <p class="olho">Sobre o curso</p>
       <h2 id="t-chat">Chat não é <span class="destaque">agente.</span></h2>
-      <p class="apoio">No chat, você pede e espera a resposta. O agente você monta uma vez e deixa trabalhar.</p>
+      <p class="apoio">No chat, você pergunta, espera e explica tudo de novo amanhã. O agente você monta uma vez, e ele trabalha sozinho todo dia.</p>
       <ul class="fatos">
         <li><b>R$ 0</b><span>Curso gratuito</span></li>
         <li><b>Vitalício</b><span>Acesso para sempre</span></li>
@@ -190,10 +244,10 @@ form .botao { width: 100%; }
       <h2 id="t-quatro">Quatro coisas que o chat <span class="destaque">não tem.</span></h2>
     </div>
     <ol class="quatro">
-      <li class="revela">Sabe quem você é</li>
-      <li class="revela">Acessa suas ferramentas<small>e-mail e agenda</small></li>
-      <li class="revela">Segue uma receita<small>sempre do mesmo jeito</small></li>
-      <li class="revela">Tem hora marcada<small>sem você pedir</small></li>
+      <li class="revela">Sabe quem você é<small>Você não explica tudo de novo.</small></li>
+      <li class="revela">Abre seu e-mail e sua agenda<small>Você não copia e cola nada.</small></li>
+      <li class="revela">Segue a mesma receita<small>O resultado sai igual todo dia.</small></li>
+      <li class="revela">Tem hora marcada<small>Trabalha antes de você chegar.</small></li>
     </ol>
   </section>
 
@@ -206,30 +260,75 @@ form .botao { width: 100%; }
     <div class="trilha" id="trilha">
       <span class="fio" id="fio" aria-hidden="true"></span>
       <ol>
-        <li class="peca"><span class="marco" aria-hidden="true">01</span><div class="linha-peca"><div><h3>Missão</h3><p>O que ele faz por você, em uma frase.</p><p class="sem">Sem missão, ele se perde.</p></div><img src="img/bussola.webp" alt="" width="480" height="480" loading="lazy"></div></li>
-        <li class="peca"><span class="marco" aria-hidden="true">02</span><div class="linha-peca"><div><h3>Mente</h3><p>As instruções: quem ele é e como ele fala.</p><p class="sem">Sem mente, ele não sabe quem é.</p></div><img src="img/cerebro-de-vidro.webp" alt="" width="480" height="480" loading="lazy"></div></li>
-        <li class="peca"><span class="marco" aria-hidden="true">03</span><div class="linha-peca"><div><h3>Memória</h3><p>Tudo o que ele precisa saber sobre você.</p><p class="sem">Sem memória, ele é genérico.</p></div><img src="img/livro.webp" alt="" width="480" height="480" loading="lazy"></div></li>
-        <li class="peca"><span class="marco" aria-hidden="true">04</span><div class="linha-peca"><div><h3>Mãos</h3><p>Os conectores: e-mail, agenda, arquivos.</p><p class="sem">Sem mãos, ele não vê o seu e-mail nem a sua agenda.</p></div><img src="img/mao-robotica.webp" alt="" width="480" height="480" loading="lazy"></div></li>
-        <li class="peca"><span class="marco" aria-hidden="true">05</span><div class="linha-peca"><div><h3>Método</h3><p>A receita que ele repete igual, todo dia.</p><p class="sem">Sem método, cada dia sai de um jeito.</p></div><img src="img/caderno-de-receitas.webp" alt="" width="480" height="480" loading="lazy"></div></li>
-        <li class="peca"><span class="marco" aria-hidden="true">06</span><div class="linha-peca"><div><h3>Momento</h3><p>A hora em que ele trabalha sozinho.</p><p class="sem">Sem momento, ele espera você.</p></div><img src="img/despertador.webp" alt="" width="480" height="480" loading="lazy"></div></li>
+        <li class="peca"><span class="marco" aria-hidden="true">01</span><div class="linha-peca"><div><h3>Missão</h3><p>O que ele faz por você, em uma frase.</p><p class="sem">Sem missão, ele se perde.</p></div><img src="img/bussola.webp" alt="Bússola" width="480" height="480" loading="lazy"></div></li>
+        <li class="peca"><span class="marco" aria-hidden="true">02</span><div class="linha-peca"><div><h3>Mente</h3><p>As instruções: quem ele é e como ele fala.</p><p class="sem">Sem mente, ele não sabe quem é.</p></div><img src="img/cerebro-de-vidro.webp" alt="Cérebro de vidro" width="480" height="480" loading="lazy"></div></li>
+        <li class="peca"><span class="marco" aria-hidden="true">03</span><div class="linha-peca"><div><h3>Memória</h3><p>Tudo o que ele precisa saber sobre você.</p><p class="sem">Sem memória, ele é genérico.</p></div><img src="img/livro.webp" alt="Livro" width="480" height="480" loading="lazy"></div></li>
+        <li class="peca"><span class="marco" aria-hidden="true">04</span><div class="linha-peca"><div><h3>Mãos</h3><p>Os conectores: e-mail, agenda, arquivos.</p><p class="sem">Sem mãos, ele não vê o seu e-mail nem a sua agenda.</p></div><img src="img/mao-robotica.webp" alt="Mão robótica" width="480" height="480" loading="lazy"></div></li>
+        <li class="peca"><span class="marco" aria-hidden="true">05</span><div class="linha-peca"><div><h3>Método</h3><p>A receita que ele repete igual, todo dia.</p><p class="sem">Sem método, cada dia sai de um jeito.</p></div><img src="img/caderno-de-receitas.webp" alt="Caderno de receitas" width="480" height="480" loading="lazy"></div></li>
+        <li class="peca"><span class="marco" aria-hidden="true">06</span><div class="linha-peca"><div><h3>Momento</h3><p>A hora em que ele trabalha sozinho.</p><p class="sem">Sem momento, ele espera você.</p></div><img src="img/despertador.webp" alt="Despertador" width="480" height="480" loading="lazy"></div></li>
       </ol>
     </div>
     <p class="mote revela">Faltou uma peça, o agente quebra.</p>
   </section>
 
+  <section class="blocos dentro" aria-labelledby="t-quem">
+    <div class="texto">
+      <p class="olho">Para quem é</p>
+      <h2 id="t-quem">É para <span class="destaque">você?</span></h2>
+    </div>
+    <div class="pares">
+      <div class="sim revela">
+        <h3>É para você se</h3>
+        <ul>
+          <li>já usa IA no trabalho</li>
+          <li>não programa</li>
+          <li>perde tempo organizando e-mail, agenda e tarefas</li>
+        </ul>
+      </div>
+      <div class="nao revela">
+        <h3>Não é para você se</h3>
+        <p>quer um robô que decide sozinho. Aqui, a IA faz e quem decide é você.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="blocos dentro" aria-labelledby="t-ensina">
+    <div class="texto">
+      <p class="olho">Quem ensina</p>
+      <h2 id="t-ensina">Marllon <span class="destaque">Costa.</span></h2>
+    </div>
+    <div class="ensina">
+      <img src="img/avatar.webp" alt="Marllon Costa" width="200" height="200" loading="lazy">
+      <p>Criou o Zenith e os plugins de IA usados no Instituto Evereste, onde chefia a Seção de Marketing e Publicidade. Trabalha com tráfego pago há 5 anos.</p>
+    </div>
+  </section>
+
+  <section class="blocos dentro" aria-labelledby="t-faq">
+    <div class="texto">
+      <p class="olho">Perguntas frequentes</p>
+      <h2 id="t-faq">Antes de se <span class="destaque">inscrever.</span></h2>
+    </div>
+    <div class="faq">
+      <details><summary>É de graça mesmo?</summary><p>Sim. R$ 0, com acesso vitalício.</p></details>
+      <details><summary>Preciso saber programar?</summary><p>Não. Você monta tudo conversando com o Claude.</p></details>
+      <details><summary>Preciso de alguma conta?</summary><p>Uma conta no Claude. Conectar e-mail e agenda e deixar o agente rodar num horário fixo podem exigir um plano pago do Claude.</p></details>
+      <details><summary>E meus e-mails?</summary><p>Você escolhe o que o agente acessa e pode desconectar quando quiser.</p></details>
+      <details><summary>Quanto tempo leva?</summary><p>Aulas de 2 a 4 minutos, uma peça por módulo.</p></details>
+    </div>
+  </section>
+
   <section class="dentro" aria-labelledby="t-inscricao">
     <div class="inscricao" id="inscricao">
       <div class="texto">
-        <p class="olho">Vagas limitadas</p>
+        <p class="olho">Pré-inscrição</p>
         <h2 id="t-inscricao">Garanta o seu <span class="destaque">acesso.</span></h2>
-        <p>O acesso ao Agente 01 é limitado. Quem faz a pré-inscrição tem o acesso garantido na estreia, em 1º de dezembro.</p>
+        <p>O curso estreia em 1º de dezembro. Deixe seu WhatsApp e o lembrete chega no dia.</p>
         <ul class="motivos">
           <li>Curso gratuito, com acesso vitalício</li>
-          <li>Uma peça por módulo, em aulas de dois a quatro minutos</li>
-          <li>Aviso da estreia no seu WhatsApp</li>
+          <li>Uma peça por módulo, em aulas de 2 a 4 minutos</li>
+          <li>Sem programar: você monta conversando com o Claude</li>
         </ul>
-        <p class="quem"><img src="img/avatar.webp" alt="" width="200" height="200" loading="lazy"><span><strong>Marllon Costa</strong><br>Chefe da Seção de Marketing e Publicidade · CCRI</span></p>
-        <img class="trofeu boia" src="img/trofeu.webp" alt="" width="480" height="480" loading="lazy">
+        <img class="trofeu boia" src="img/trofeu.webp" alt="Troféu" width="480" height="480" loading="lazy">
       </div>
 
       <form id="form" novalidate>
@@ -239,7 +338,7 @@ form .botao { width: 100%; }
           <label for="idade">Idade<input type="number" id="idade" name="idade" inputmode="numeric" required min="14" max="100"></label>
           <label for="whatsapp">WhatsApp com DDD<input type="tel" id="whatsapp" name="whatsapp" autocomplete="tel-national" inputmode="numeric" placeholder="(92) 90000-0000" required></label>
         </div>
-        <label for="trabalho">Tipo de trabalho
+        <label for="trabalho">Sua área (para eu trazer exemplos dela)
           <select id="trabalho" name="trabalho" required>
             <option value="">Escolha uma opção</option>
             <option>Administrativo</option>
@@ -253,13 +352,16 @@ form .botao { width: 100%; }
           </select>
         </label>
         <label class="aceite" for="aceite"><input type="checkbox" id="aceite" name="aceite" required><span>Autorizo o Instituto Evereste a usar estes dados para a pré-inscrição e para me avisar sobre o curso Agente 01.</span></label>
-        <button type="submit" class="botao" id="enviar">Garantir meu acesso</button>
+        <button type="submit" class="botao" id="enviar">Garantir meu acesso gratuito</button>
+        <p class="miudo">Sem spam. Só o lembrete da estreia.</p>
         <p class="aviso" id="aviso" role="alert"></p>
       </form>
 
       <div class="sucesso" id="sucesso" tabindex="-1" hidden>
-        <h3 id="sucesso-titulo">Pré-inscrição feita.</h3>
-        <p id="sucesso-texto">Seu acesso ao Agente 01 está garantido. O aviso da estreia chega no WhatsApp informado.</p>
+        <h3 id="sucesso-titulo">Acesso garantido.</h3>
+        <p id="sucesso-texto">Em 1º de dezembro, o link chega no seu WhatsApp.</p>
+        <p>Conhece alguém que perde a manhã no e-mail? Mande esta página para essa pessoa.</p>
+        <a class="botao" href="https://wa.me/?text=Curso%20gratuito%20para%20montar%20um%20agente%20de%20IA%20que%20trabalha%20por%20voc%C3%AA%20todo%20dia.%20A%20pr%C3%A9-inscri%C3%A7%C3%A3o%20%C3%A9%20aqui%3A%20https%3A%2F%2Finstitutoevereste.github.io%2Fagente01-preinscricao%2F" target="_blank" rel="noopener">Mandar pelo WhatsApp</a>
         <p>Enquanto o curso não estreia, <a href="https://institutoevereste.github.io/metodo-6m-colaboradores/">leia o ebook Método 6M</a> e já rascunhe o seu agente.</p>
       </div>
     </div>
@@ -323,8 +425,8 @@ form .botao { width: 100%; }
 
   function pronto(nome, jaExistia) {
     form.hidden = true;
-    el("sucesso-titulo").textContent = jaExistia ? "Você já está na lista." : "Pré-inscrição feita, " + nome.split(" ")[0] + ".";
-    if (jaExistia) el("sucesso-texto").textContent = "Este WhatsApp já tem pré-inscrição. Seu acesso ao Agente 01 está garantido.";
+    el("sucesso-titulo").textContent = jaExistia ? "Você já está na lista." : "Acesso garantido, " + nome.split(" ")[0] + ".";
+    if (jaExistia) el("sucesso-texto").textContent = "Este WhatsApp já tem pré-inscrição. Em 1º de dezembro, o link chega nele.";
     el("sucesso").hidden = false;
     el("sucesso").focus();
   }
@@ -354,7 +456,7 @@ form .botao { width: 100%; }
       .catch(function () {
         aviso.textContent = "Não foi possível registrar agora. Confira os dados e tente de novo.";
         enviar.disabled = false;
-        enviar.textContent = "Garantir meu acesso";
+        enviar.textContent = "Garantir meu acesso gratuito";
       });
   });
 })();
