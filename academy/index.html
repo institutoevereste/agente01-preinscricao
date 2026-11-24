@@ -116,6 +116,13 @@ h2 { font-size: clamp(28px, 5vw, 46px); line-height: 1.1; }
 .titulo .lapis { position: absolute; left: 1.95em; bottom: -0.34em; width: 6.2em; height: 0.22em; overflow: visible; }
 .titulo .lapis path { stroke-dasharray: 1; stroke-dashoffset: 0; animation: traca 0.4s steps(4) 2.7s both; }
 @keyframes traca { from { stroke-dashoffset: 1; } }
+/* no desktop a capa fica centralizada; a última linha encolhe até o texto para o traço a lápis continuar embaixo de "com você." */
+@media (min-width: 900px) {
+  .capa .texto { align-items: center; text-align: center; }
+  .capa .tag { align-self: center; }
+  .capa .acoes { justify-content: center; }
+  .titulo .ultima { width: fit-content; margin-inline: auto; }
+}
 
 /* a colagem: cena de 1080×440 escalada por --k (o script ajusta pela largura da tela); os braços saem pelas bordas.
    Pose da Criação de Adão: o robô sobe da esquerda e a mão humana desce da direita. */
