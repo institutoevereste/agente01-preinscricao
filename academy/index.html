@@ -118,31 +118,30 @@ h2 { font-size: clamp(28px, 5vw, 46px); line-height: 1.1; }
 @keyframes traca { from { stroke-dashoffset: 1; } }
 
 /* a colagem: cena de 1080×440 escalada por --k (o script ajusta pela largura da tela); os braços saem pelas bordas.
-   A ponta do indicador humano fica em (526, 205). */
+   Pose da Criação de Adão: o robô sobe da esquerda e a mão humana desce da direita. */
 .palco { position: relative; margin-top: clamp(30px, 5vw, 52px); height: calc(440px * var(--k, 0.62)); overflow-x: clip; }
 .cena { position: absolute; left: 50%; top: 0; width: 1080px; height: 440px; margin-left: -540px; transform: scale(var(--k, 0.62)); transform-origin: 50% 0; }
 .cena > * { position: absolute; }
-.folha { left: 30px; top: 104px; width: 370px; height: 226px; background: #c5d9f2; box-shadow: 9px 9px 0 rgba(25, 54, 95, 0.2); filter: url(#rasgo); rotate: -5deg; --de: -560px; animation: entra-x 0.4s steps(4) 0.2s both, ferve 1.2s steps(1) 1s infinite; }
-.painel { left: 770px; top: 112px; width: 400px; height: 276px; background: var(--marinho); filter: url(#rasgo); rotate: 4deg; --de: 560px; animation: entra-x 0.4s steps(4) 0.3s both, ferve 1.2s steps(1) 1.3s infinite; }
-.disco { left: 351px; top: 15px; width: 380px; height: 380px; border-radius: 50%; background: var(--azul); filter: url(#rasgo); animation: pop 0.5s steps(5) 0.3s both; }
-.fita { left: 150px; top: 302px; width: 124px; height: 30px; background: repeating-linear-gradient(90deg, var(--marinho) 0 10px, #2c4f83 10px 20px); rotate: -9deg; animation: pop 0.3s steps(3) 0.7s both; }
+/* os papéis ficam por cima dos braços: cada braço sai de trás de um */
+.folha { left: 880px; top: 38px; width: 420px; height: 270px; background: #c5d9f2; box-shadow: 9px 9px 0 rgba(25, 54, 95, 0.2); filter: url(#rasgo); rotate: 4deg; --de: 560px; animation: entra-x 0.4s steps(4) 0.2s both, ferve 1.2s steps(1) 1s infinite; }
+.painel { left: -90px; top: 172px; width: 235px; height: 262px; background: var(--marinho); filter: url(#rasgo); rotate: -4deg; --de: -560px; animation: entra-x 0.4s steps(4) 0.3s both, ferve 1.2s steps(1) 1.3s infinite; }
+.disco { left: 351px; top: 28px; width: 380px; height: 380px; border-radius: 50%; background: var(--azul); filter: url(#rasgo); animation: pop 0.5s steps(5) 0.3s both; }
+.fita { left: 900px; top: 292px; width: 124px; height: 30px; background: repeating-linear-gradient(90deg, var(--marinho) 0 10px, #2c4f83 10px 20px); rotate: 8deg; animation: pop 0.3s steps(3) 0.7s both; }
 @keyframes entra-x { from { translate: var(--de) 0; } to { translate: 0 0; } }
 @keyframes pop { 0% { scale: 0; } 55% { scale: 1.12; } 80% { scale: 0.96; } 100% { scale: 1; } }
 @keyframes ferve { 0% { translate: 0 0; } 25% { translate: 1px -1px; } 50% { translate: -1px 1px; } 75% { translate: 1px 1px; } }
 .mao { filter: drop-shadow(9px 11px 0 rgba(25, 54, 95, 0.3)); animation: chega 0.9s steps(9) both, respira 2.4s steps(8) infinite alternate; }
 @keyframes chega { 0% { translate: var(--dx) var(--dy); } 45% { translate: calc(var(--dx) * 0.25) calc(var(--dy) * 0.25); } 75% { translate: calc(var(--dx) * 0.06) calc(var(--dy) * 0.06); } 100% { translate: 0 0; } }
 @keyframes respira { from { translate: 0 0; } to { translate: var(--rx) 0; } }
-.humana { left: -63px; top: -119px; width: 640px; height: 540px; --dx: -640px; --dy: -210px; --rx: -4px; --sobra: -15.9px; --m: url("img/mao-humana-contorno.webp"); --f: url("img/mao-humana-capa.webp"); animation-delay: 0.3s, 2s; }
-.robo { left: 524px; top: -13px; width: 640px; height: 640px; --dx: 660px; --dy: 90px; --rx: 4px; --sobra: -19.2px; --m: url("img/mao-robotica-contorno.webp"); --f: url("img/mao-robotica-capa.webp"); animation-delay: 0.4s, 2s; }
+.humana { left: 550px; top: 78px; width: 520px; height: 241px; --dx: 660px; --dy: -120px; --rx: 4px; --sobra: -12.6px; --m: url("img/mao-humana-direita-contorno.webp"); --f: url("img/mao-humana-direita-capa.webp"); animation-delay: 0.4s, 2s; }
+.robo { left: -15px; top: 191px; width: 540px; height: 231px; --dx: -640px; --dy: 60px; --rx: -4px; --sobra: -10.8px; --m: url("img/mao-robotica-esquerda-contorno.webp"); --f: url("img/mao-robotica-esquerda-capa.webp"); animation-delay: 0.3s, 2s; }
 .mao .giro { position: absolute; inset: 0; }
-.humana .giro { transform-origin: 92% 60%; rotate: -14deg; }
-.robo .giro { rotate: -90deg; }
 /* contorno do recorte no gradiente holográfico: a silhueta engordada serve de máscara */
 .mao .holo { position: absolute; inset: var(--sobra); background: linear-gradient(100deg, #93ddf5, #8e9df3, #a991f1, #e6cdf8, #93ddf5, #c3b1f7, #8e9df3, #93ddf5) 0 0 / 130% 100%; -webkit-mask: var(--m) center / 100% 100% no-repeat; mask: var(--m) center / 100% 100% no-repeat; animation: brilho 3.6s steps(12) infinite alternate; }
 @keyframes brilho { to { background-position: 100% 0; } }
 .mao img { position: absolute; inset: 0; width: 100%; height: 100%; }
 .mao .reticula { position: absolute; inset: 0; background: radial-gradient(rgba(25, 54, 95, 0.6) 1.1px, transparent 1.5px) 0 0 / 7px 7px; mix-blend-mode: multiply; opacity: 0.4; -webkit-mask: var(--f) center / 100% 100% no-repeat; mask: var(--f) center / 100% 100% no-repeat; }
-.faisca { left: 461px; top: 132px; width: 160px; height: 160px; animation: pop 0.3s steps(3) 1.4s both, pisca 1.2s steps(1) 2s infinite; }
+.faisca { left: 457px; top: 138px; width: 160px; height: 160px; animation: pop 0.3s steps(3) 1.4s both, pisca 1.2s steps(1) 2s infinite; }
 @keyframes pisca { 0%, 60% { opacity: 1; } 30% { opacity: 0.7; } }
 .boia { animation: boia 2.4s steps(6) infinite; }
 @keyframes boia { 0%, 100% { transform: translateY(6px) rotate(-3deg); } 50% { transform: translateY(-6px) rotate(3deg); } }
@@ -313,12 +312,12 @@ body::after { content: ""; position: fixed; inset: 0; z-index: 50; pointer-event
     </div>
     <div class="palco" aria-hidden="true">
       <div class="cena">
-        <span class="folha"></span>
-        <span class="painel"></span>
         <span class="disco"></span>
+        <div class="mao robo"><div class="giro"><span class="holo"></span><img src="img/mao-robotica-esquerda-capa.webp" alt="" width="900" height="385"><span class="reticula"></span></div></div>
+        <div class="mao humana"><div class="giro"><span class="holo"></span><img src="img/mao-humana-direita-capa.webp" alt="" width="900" height="417"><span class="reticula"></span></div></div>
+        <span class="painel"></span>
+        <span class="folha"></span>
         <span class="fita"></span>
-        <div class="mao humana"><div class="giro"><span class="holo"></span><img src="img/mao-humana-capa.webp" alt="" width="900" height="760"><span class="reticula"></span></div></div>
-        <div class="mao robo"><div class="giro"><span class="holo"></span><img src="img/mao-robotica-capa.webp" alt="" width="900" height="900"><span class="reticula"></span></div></div>
         <svg class="faisca" viewBox="0 0 100 100" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round"><path d="M50 6v18M27 12l8 16M73 12l-8 16M50 76v18M27 88l8-16M73 88l-8-16"/></svg>
       </div>
     </div>
