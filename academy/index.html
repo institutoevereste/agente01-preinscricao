@@ -5,10 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
 <title>Evereste Academy · Agente 01</title>
-<meta name="description" content="O Evereste Academy chegou, e o primeiro curso é de IA. Agente 01: monte no Claude, sem programar, um agente que trabalha por você todo dia. Gratuito, estreia em 1º de dezembro.">
+<meta name="description" content="Agente 01, o primeiro curso do Evereste Academy: monte no Claude, sem programar, um agente de IA que trabalha com você. Gratuito, estreia em 1º de dezembro. Faça a pré-inscrição.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Evereste Academy · O primeiro curso é de IA">
-<meta property="og:description" content="Agente 01: monte no Claude, sem programar, um agente que trabalha por você todo dia. Gratuito, estreia em 1º/12.">
+<meta property="og:url" content="https://institutoevereste.github.io/agente01-preinscricao/academy/">
+<meta property="og:title" content="Agente 01 · Evereste Academy">
+<meta property="og:description" content="Monte no Claude, sem programar, um agente de IA que trabalha com você. Curso gratuito, estreia em 1º/12. Faça a pré-inscrição.">
+<meta property="og:image" content="https://institutoevereste.github.io/agente01-preinscricao/academy/img/previa.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap">
@@ -78,23 +83,68 @@ h2 { font-size: clamp(28px, 5vw, 46px); line-height: 1.1; }
 .marca span:first-child { color: var(--grafite); }
 .marca span:last-child { color: var(--azul); }
 
-/* capa: texto + cartão do curso, como na vitrine do Academy */
-.capa { display: grid; gap: 36px; align-items: center; }
-.capa .sub { font-size: clamp(17px, 2.1vw, 19px); color: var(--apoio); max-width: 31em; }
+/* collab no topo: a marca do Academy × a marca do curso (caixa no gradiente holográfico da identidade do curso) */
+.collab { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
+.collab .marca { font-size: 18px; }
+.collab .vezes { font-weight: 500; font-size: 18px; color: var(--apoio); }
+.collab .agente { display: inline-flex; align-items: center; gap: 6px; font-weight: 800; font-size: 16px; letter-spacing: 0.05em; color: var(--grafite); }
+.collab .agente b { font-weight: 800; color: var(--marinho); padding: 1px 7px; background: linear-gradient(115deg, #c3b1f7, #8e9df3, #93ddf5, #e6cdf8, #a991f1); rotate: -3deg; }
+@media (max-width: 480px) { .topo .botao { display: none; } }
+
+/* capa: título com "por" riscado e "com" colado; embaixo, a colagem das duas mãos, como no anúncio.
+   Tudo anda aos trancos (steps), como colagem em stop-motion. Sem animação, vale o estado final desenhado aqui. */
+.capa { display: block; }
+.capa .texto { gap: 20px; }
+.capa .sub { font-size: clamp(17px, 2.1vw, 19px); color: var(--apoio); max-width: 33em; }
 .acoes { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
 .capa .nota { font-weight: 600; font-size: 14px; color: var(--grafite); }
-@media (min-width: 900px) { .capa { grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: 56px; } }
-.curso { position: relative; overflow: hidden; background: var(--branco); border: 2px solid var(--linha); border-radius: 22px; box-shadow: 0 18px 40px rgba(25, 54, 95, 0.1); display: flex; flex-direction: column; }
-/* roda menor que a distância do canto até o círculo da foto, para nunca ficar cortada por ele */
-.curso .roda { position: absolute; top: 0; right: 0; width: 32%; max-width: 150px; z-index: 1; }
-.curso .foto { position: relative; display: grid; place-items: center; padding: 34px 18% 6px; }
-.curso .foto::before { content: ""; position: absolute; width: 62%; aspect-ratio: 1; border-radius: 50%; background: #e7eef8; }
-.curso .foto img { position: relative; width: 100%; }
-.curso .info { display: flex; flex-direction: column; gap: 6px; padding: 18px 24px 24px; border-top: 2px solid var(--linha); }
-.curso .tag { align-self: flex-start; font-weight: 700; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--branco); background: var(--azul-forte); border-radius: 6px; padding: 7px 12px; }
-.curso .nome { font-weight: 800; font-size: 28px; color: var(--grafite); line-height: 1.15; }
-.curso .meta { display: flex; flex-wrap: wrap; gap: 6px 16px; font-weight: 600; font-size: 14px; color: var(--apoio); }
-.boia { animation: boia 7s ease-in-out infinite; }
+.tag { align-self: flex-start; font-weight: 700; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--branco); background: var(--azul-forte); border-radius: 6px; padding: 7px 12px; }
+.titulo { font-size: clamp(30px, 9.4vw, 84px); line-height: 1.1; letter-spacing: -0.025em; word-spacing: 0.06em; }
+.titulo .l { display: block; white-space: nowrap; }
+.titulo .ultima { position: relative; display: flex; align-items: baseline; }
+.titulo .p { display: inline-block; animation: palavra 0.3s steps(3) both; animation-delay: calc(var(--i) * 90ms + 300ms); }
+@keyframes palavra { 0% { opacity: 0; translate: 0 24px; rotate: -5deg; } 1% { opacity: 1; translate: 0 24px; rotate: -5deg; } 100% { opacity: 1; translate: 0 0; rotate: 0deg; } }
+.titulo .por { position: relative; color: #7d8690; animation: palavra 0.3s steps(3) 840ms both, tinta 2.1s steps(1) both; }
+@keyframes tinta { 0%, 99% { color: var(--grafite); } 100% { color: #7d8690; } }
+.titulo .por::after { content: ""; position: absolute; left: -6%; top: 56%; width: 112%; height: 0.1em; border-radius: 0.05em; background: var(--marinho); rotate: -7deg; transform-origin: 0 50%; animation: risca 0.3s steps(3) 1.8s both; }
+@keyframes risca { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+/* a largura é a do próprio recorte; só o teto anima, para "você." ser empurrado quando o "com" chega */
+.titulo .cola { display: inline-block; flex: none; max-width: 4em; margin: 0 0.3em 0 0.26em; animation: abre 0.3s steps(3) 2.2s both; }
+@keyframes abre { from { max-width: 0; margin: 0; } }
+.titulo mark { display: inline-block; background: var(--azul); color: var(--branco); padding: 0 0.2em 0.04em; box-shadow: 0.07em 0.07em 0 var(--marinho); rotate: -3deg; transform-origin: 30% 60%; animation: bate 0.3s steps(3) 2.2s both, ferve 1.2s steps(1) 2.6s infinite; }
+@keyframes bate { 0% { opacity: 0; scale: 1.5; rotate: 9deg; } 1% { opacity: 1; scale: 1.5; rotate: 9deg; } 60% { scale: 0.94; rotate: -3deg; } 100% { opacity: 1; scale: 1; rotate: -3deg; } }
+.titulo .lapis { position: absolute; left: 1.95em; bottom: -0.34em; width: 6.2em; height: 0.22em; overflow: visible; }
+.titulo .lapis path { stroke-dasharray: 1; stroke-dashoffset: 0; animation: traca 0.4s steps(4) 2.7s both; }
+@keyframes traca { from { stroke-dashoffset: 1; } }
+
+/* a colagem: cena de 1080×440 escalada por --k (o script ajusta pela largura da tela); os braços saem pelas bordas.
+   A ponta do indicador humano fica em (526, 205). */
+.palco { position: relative; margin-top: clamp(30px, 5vw, 52px); height: calc(440px * var(--k, 0.62)); overflow-x: clip; }
+.cena { position: absolute; left: 50%; top: 0; width: 1080px; height: 440px; margin-left: -540px; transform: scale(var(--k, 0.62)); transform-origin: 50% 0; }
+.cena > * { position: absolute; }
+.folha { left: 30px; top: 104px; width: 370px; height: 226px; background: #c5d9f2; box-shadow: 9px 9px 0 rgba(25, 54, 95, 0.2); filter: url(#rasgo); rotate: -5deg; --de: -560px; animation: entra-x 0.4s steps(4) 0.2s both, ferve 1.2s steps(1) 1s infinite; }
+.painel { left: 770px; top: 112px; width: 400px; height: 276px; background: var(--marinho); filter: url(#rasgo); rotate: 4deg; --de: 560px; animation: entra-x 0.4s steps(4) 0.3s both, ferve 1.2s steps(1) 1.3s infinite; }
+.disco { left: 351px; top: 15px; width: 380px; height: 380px; border-radius: 50%; background: var(--azul); filter: url(#rasgo); animation: pop 0.5s steps(5) 0.3s both; }
+.fita { left: 150px; top: 302px; width: 124px; height: 30px; background: repeating-linear-gradient(90deg, var(--marinho) 0 10px, #2c4f83 10px 20px); rotate: -9deg; animation: pop 0.3s steps(3) 0.7s both; }
+@keyframes entra-x { from { translate: var(--de) 0; } to { translate: 0 0; } }
+@keyframes pop { 0% { scale: 0; } 55% { scale: 1.12; } 80% { scale: 0.96; } 100% { scale: 1; } }
+@keyframes ferve { 0% { translate: 0 0; } 25% { translate: 1px -1px; } 50% { translate: -1px 1px; } 75% { translate: 1px 1px; } }
+.mao { filter: drop-shadow(9px 11px 0 rgba(25, 54, 95, 0.3)); animation: chega 0.9s steps(9) both, respira 2.4s steps(8) infinite alternate; }
+@keyframes chega { 0% { translate: var(--dx) var(--dy); } 45% { translate: calc(var(--dx) * 0.25) calc(var(--dy) * 0.25); } 75% { translate: calc(var(--dx) * 0.06) calc(var(--dy) * 0.06); } 100% { translate: 0 0; } }
+@keyframes respira { from { translate: 0 0; } to { translate: var(--rx) 0; } }
+.humana { left: -63px; top: -119px; width: 640px; height: 540px; --dx: -640px; --dy: -210px; --rx: -4px; --sobra: -15.9px; --m: url("img/mao-humana-contorno.webp"); --f: url("img/mao-humana-capa.webp"); animation-delay: 0.3s, 2s; }
+.robo { left: 524px; top: -13px; width: 640px; height: 640px; --dx: 660px; --dy: 90px; --rx: 4px; --sobra: -19.2px; --m: url("img/mao-robotica-contorno.webp"); --f: url("img/mao-robotica-capa.webp"); animation-delay: 0.4s, 2s; }
+.mao .giro { position: absolute; inset: 0; }
+.humana .giro { transform-origin: 92% 60%; rotate: -14deg; }
+.robo .giro { rotate: -90deg; }
+/* contorno do recorte no gradiente holográfico: a silhueta engordada serve de máscara */
+.mao .holo { position: absolute; inset: var(--sobra); background: linear-gradient(100deg, #93ddf5, #8e9df3, #a991f1, #e6cdf8, #93ddf5, #c3b1f7, #8e9df3, #93ddf5) 0 0 / 130% 100%; -webkit-mask: var(--m) center / 100% 100% no-repeat; mask: var(--m) center / 100% 100% no-repeat; animation: brilho 3.6s steps(12) infinite alternate; }
+@keyframes brilho { to { background-position: 100% 0; } }
+.mao img { position: absolute; inset: 0; width: 100%; height: 100%; }
+.mao .reticula { position: absolute; inset: 0; background: radial-gradient(rgba(25, 54, 95, 0.6) 1.1px, transparent 1.5px) 0 0 / 7px 7px; mix-blend-mode: multiply; opacity: 0.4; -webkit-mask: var(--f) center / 100% 100% no-repeat; mask: var(--f) center / 100% 100% no-repeat; }
+.faisca { left: 461px; top: 132px; width: 160px; height: 160px; animation: pop 0.3s steps(3) 1.4s both, pisca 1.2s steps(1) 2s infinite; }
+@keyframes pisca { 0%, 60% { opacity: 1; } 30% { opacity: 0.7; } }
+.boia { animation: boia 2.4s steps(6) infinite; }
 @keyframes boia { 0%, 100% { transform: translateY(6px) rotate(-3deg); } 50% { transform: translateY(-6px) rotate(3deg); } }
 
 /* linhas de rede: um ladrilho que se repete na horizontal, então os nós ficam redondos em qualquer largura
@@ -187,9 +237,8 @@ h2 { font-size: clamp(28px, 5vw, 46px); line-height: 1.1; }
 form, .sucesso { background: var(--branco); color: var(--texto); border-radius: 20px; padding: 26px 22px; display: flex; flex-direction: column; gap: 16px; min-width: 0; }
 form h3, .sucesso h3 { font-weight: 800; font-size: 24px; color: var(--grafite); line-height: 1.2; }
 label { display: flex; flex-direction: column; gap: 6px; font-weight: 600; font-size: 14px; color: var(--grafite); min-width: 0; }
-input[type="text"], input[type="number"], input[type="tel"], select { font: 400 16px var(--fonte); color: var(--texto); background: var(--branco); border: 2px solid var(--linha); border-radius: 10px; padding: 12px 14px; width: 100%; min-width: 0; }
-input:focus, select:focus { outline: 3px solid var(--azul); outline-offset: 1px; border-color: var(--azul); }
-.dupla { display: grid; grid-template-columns: 104px minmax(0, 1fr); gap: 12px; }
+input[type="text"], input[type="email"], input[type="tel"] { font: 400 16px var(--fonte); color: var(--texto); background: var(--branco); border: 2px solid var(--linha); border-radius: 10px; padding: 12px 14px; width: 100%; min-width: 0; }
+input:focus { outline: 3px solid var(--azul); outline-offset: 1px; border-color: var(--azul); }
 .aceite { display: grid; grid-template-columns: 20px minmax(0, 1fr); gap: 10px; align-items: start; font-weight: 400; font-size: 13px; line-height: 1.5; color: var(--apoio); background: var(--nevoa); border: 2px solid var(--linha); border-radius: 10px; padding: 14px; }
 .aceite strong { color: var(--grafite); }
 .aceite input { width: 20px; height: 20px; margin: 1px 0 0; accent-color: var(--azul-forte); }
@@ -203,14 +252,25 @@ form .botao { width: 100%; }
 .rodape .marca { font-size: 20px; margin-bottom: 6px; }
 .rodape strong { font-weight: 800; font-size: 20px; color: var(--grafite); }
 
-/* entrada ao rolar: só com script, para a página nunca ficar em branco */
-.js .revela { opacity: 0; transform: translateY(22px); transition: opacity 0.6s ease, transform 0.6s ease; }
-.js .revela.visto { opacity: 1; transform: none; }
+/* papel rasgado nos cartões: a cor vai num fundo à parte, para a borda irregular não deformar o texto */
+.academy, .quatro li, .pares .sim, .pares .nao, .inscricao { position: relative; isolation: isolate; background: none; border-radius: 0; }
+.academy::after, .quatro li::after, .pares .sim::after, .pares .nao::after, .inscricao::after { content: ""; position: absolute; inset: 0; z-index: -1; background: var(--papel, var(--nevoa)); filter: url(#rasgo); }
+.pares .sim { --papel: var(--azul-forte); }
+.inscricao { --papel: var(--marinho); }
+/* grão de papel sobre a página toda */
+body::after { content: ""; position: fixed; inset: 0; z-index: 50; pointer-events: none; opacity: 0.16; mix-blend-mode: multiply; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0.5 0 0 0 0 0.5 0 0 0 0 0.5 0 0 0 0.5 0'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23g)'/%3E%3C/svg%3E"); }
+/* a trilha também muda aos trancos */
+.linha-peca, .marco { transition-timing-function: steps(3); }
+.linha-peca img { transition-timing-function: steps(4); }
+
+/* entrada ao rolar, em quatro trancos: só com script, para a página nunca ficar em branco */
+.js .revela { opacity: 0; }
+.js .revela.visto { animation: assenta 0.45s steps(4) both; }
+@keyframes assenta { 0% { opacity: 0; translate: 0 26px; rotate: -2deg; } 1% { opacity: 1; translate: 0 26px; rotate: -2deg; } 100% { opacity: 1; translate: 0 0; rotate: 0deg; } }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .boia { animation: none; }
-  .js .revela { opacity: 1; transform: none; }
-  * { transition: none !important; }
+  .js .revela { opacity: 1; }
+  * { transition: none !important; animation: none !important; }
 }
 </style>
 </head>
@@ -218,40 +278,50 @@ form .botao { width: 100%; }
 
 <div class="faixa" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
 
+<!-- borda irregular de papel cortado à mão, usada nas peças da colagem e no fundo dos cartões -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <filter id="rasgo" x="-6%" y="-6%" width="112%" height="112%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="2" seed="4" result="ruido"/>
+    <feDisplacementMap in="SourceGraphic" in2="ruido" scale="10" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+</svg>
+
 <header class="topo dentro">
-  <a class="marca" href="#" aria-label="Evereste Academy"><span>EVERESTE</span><span>ACADEMY</span></a>
+  <a class="collab" href="#" aria-label="Evereste Academy apresenta o curso Agente 01">
+    <span class="marca"><span>EVERESTE</span><span>ACADEMY</span></span>
+    <span class="vezes" aria-hidden="true">×</span>
+    <span class="agente">AGENTE<b>01</b></span>
+  </a>
   <a class="botao contorno pequeno" href="#inscricao">Pré-inscrição</a>
 </header>
 
 <main>
-  <section class="capa dentro">
-    <div class="texto">
-      <h1>O Evereste Academy chegou. E o primeiro curso é de <span class="destaque">IA.</span></h1>
-      <p class="sub">No Agente 01, você monta no Claude, sem programar, um agente que lê seu e-mail, confere sua agenda e te entrega o que importa, todo dia, na hora que você escolher. Aulas de 2 a 4 minutos.</p>
+  <section class="capa">
+    <div class="texto dentro">
+      <span class="tag">Curso 01 · Inteligência artificial</span>
+      <h1 class="titulo">
+        <span class="l"><span class="p" style="--i:0">Um</span> <span class="p" style="--i:1">agente</span> <span class="p" style="--i:2">de</span> <span class="p" style="--i:3">IA</span></span>
+        <span class="l"><span class="p" style="--i:4">que</span> <span class="p" style="--i:5">trabalha</span></span>
+        <span class="l ultima"><span class="p por" aria-hidden="true">por</span><span class="cola"><mark>com</mark></span><span class="p" style="--i:7">&nbsp;você.</span><svg class="lapis" viewBox="0 0 400 22" preserveAspectRatio="none" fill="none" stroke="#19365f" stroke-width="4" stroke-linecap="round" aria-hidden="true"><path d="M2 12 C40 2 80 20 120 10 S200 4 240 12 S330 18 398 8" pathLength="1"/></svg></span>
+      </h1>
+      <p class="sub">No Agente 01, você monta no Claude, sem programar, um agente que lê seu e-mail, confere sua agenda e te entrega o que importa, na hora que você escolher. Ele agiliza o seu dia; quem decide é você. Aulas de 2 a 4 minutos.</p>
       <div class="acoes">
-        <a class="botao" href="#inscricao">Quero meu acesso gratuito</a>
+        <a class="botao" href="#inscricao">Fazer minha pré-inscrição</a>
         <a class="botao contorno" href="#metodo">Ver as seis peças</a>
       </div>
-      <p class="nota">Leva 20 segundos. O lembrete da estreia chega no seu WhatsApp.</p>
+      <p class="nota">Curso gratuito. Leva 20 segundos, e assim que o curso sair você recebe o link de inscrição.</p>
     </div>
-    <article class="curso" aria-label="Curso 01 do Evereste Academy: Agente 01">
-      <svg class="roda" viewBox="0 0 300 300" aria-hidden="true">
-        <g fill="none" stroke-width="44">
-          <circle cx="300" cy="0" r="230" pathLength="360" stroke-dasharray="13 347" stroke-dashoffset="-90" stroke="#45784a"/>
-          <circle cx="300" cy="0" r="230" pathLength="360" stroke-dasharray="13 347" stroke-dashoffset="-105" stroke="#0a86c1"/>
-          <circle cx="300" cy="0" r="230" pathLength="360" stroke-dasharray="13 347" stroke-dashoffset="-120" stroke="#5dbb57"/>
-          <circle cx="300" cy="0" r="230" pathLength="360" stroke-dasharray="13 347" stroke-dashoffset="-135" stroke="#035e8f"/>
-          <circle cx="300" cy="0" r="230" pathLength="360" stroke-dasharray="13 347" stroke-dashoffset="-150" stroke="#19486a"/>
-          <circle cx="300" cy="0" r="230" pathLength="360" stroke-dasharray="13 347" stroke-dashoffset="-165" stroke="#e5243b"/>
-        </g>
-      </svg>
-      <div class="foto"><img class="boia" src="img/mao-robotica.webp" alt="Mão robótica" width="480" height="480"></div>
-      <div class="info">
-        <span class="tag">Curso 01 · Inteligência artificial</span>
-        <p class="nome">Agente 01</p>
-        <p class="meta"><span>Gratuito</span><span>Acesso vitalício</span><span>Estreia em 1º/12</span></p>
+    <div class="palco" aria-hidden="true">
+      <div class="cena">
+        <span class="folha"></span>
+        <span class="painel"></span>
+        <span class="disco"></span>
+        <span class="fita"></span>
+        <div class="mao humana"><div class="giro"><span class="holo"></span><img src="img/mao-humana-capa.webp" alt="" width="900" height="760"><span class="reticula"></span></div></div>
+        <div class="mao robo"><div class="giro"><span class="holo"></span><img src="img/mao-robotica-capa.webp" alt="" width="900" height="900"><span class="reticula"></span></div></div>
+        <svg class="faisca" viewBox="0 0 100 100" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round"><path d="M50 6v18M27 12l8 16M73 12l-8 16M50 76v18M27 88l8-16M73 88l-8-16"/></svg>
       </div>
-    </article>
+    </div>
   </section>
 
   <div class="rede" aria-hidden="true"></div>
@@ -294,7 +364,7 @@ form .botao { width: 100%; }
     <div class="texto">
       <p class="olho">Sobre o curso</p>
       <h2 id="t-quatro">Chat não é <span class="destaque">agente.</span></h2>
-      <p class="apoio">No chat, você pergunta, espera e explica tudo de novo amanhã. O agente você monta uma vez, e ele trabalha sozinho todo dia. Ele tem quatro coisas que o chat não tem.</p>
+      <p class="apoio">No chat, você pergunta, espera e explica tudo de novo amanhã. O agente você monta uma vez, e ele trabalha com você todo dia. Ele tem quatro coisas que o chat não tem.</p>
     </div>
     <ol class="quatro">
       <li class="revela">Sabe quem você é<small>Você não explica tudo de novo.</small></li>
@@ -371,7 +441,7 @@ form .botao { width: 100%; }
     </div>
     <div class="faq">
       <details><summary>É de graça mesmo?</summary><p>Sim. R$ 0, com acesso vitalício.</p></details>
-      <details><summary>Onde vou assistir?</summary><p>No Evereste Academy, em evereste.academy. Na estreia, o link para entrar chega no seu WhatsApp.</p></details>
+      <details><summary>Onde vou assistir?</summary><p>No Evereste Academy, em evereste.academy. Assim que o curso sair, o link de inscrição chega no seu e-mail e no seu WhatsApp.</p></details>
       <details><summary>Preciso saber programar?</summary><p>Não. Você monta tudo conversando com o Claude.</p></details>
       <details><summary>Preciso de alguma conta?</summary><p>Uma conta no Claude. Conectar e-mail e agenda e deixar o agente rodar num horário fixo podem exigir um plano pago do Claude.</p></details>
       <details><summary>E meus e-mails?</summary><p>Você escolhe o que o agente acessa e pode desconectar quando quiser.</p></details>
@@ -383,8 +453,8 @@ form .botao { width: 100%; }
     <div class="inscricao" id="inscricao">
       <div class="texto">
         <p class="olho">Pré-inscrição · Curso 01</p>
-        <h2 id="t-inscricao">Garanta o seu <span class="destaque">acesso.</span></h2>
-        <p>O Agente 01 estreia no Evereste Academy em 1º de dezembro. Deixe seu WhatsApp e o lembrete chega no dia.</p>
+        <h2 id="t-inscricao">Entre na lista do <span class="destaque">Agente 01.</span></h2>
+        <p>O Agente 01 estreia no Evereste Academy em 1º de dezembro. Faça a pré-inscrição: assim que o curso sair, você é avisado e recebe o link para se inscrever.</p>
         <ul class="motivos">
           <li>Curso gratuito, com acesso vitalício</li>
           <li>Uma peça por módulo, em aulas de 2 a 4 minutos</li>
@@ -396,32 +466,17 @@ form .botao { width: 100%; }
       <form id="form" novalidate>
         <h3>Pré-inscrição</h3>
         <label for="nome">Nome completo<input type="text" id="nome" name="nome" autocomplete="name" required minlength="3" maxlength="120"></label>
-        <div class="dupla">
-          <label for="idade">Idade<input type="number" id="idade" name="idade" inputmode="numeric" required min="14" max="100"></label>
-          <label for="whatsapp">WhatsApp com DDD<input type="tel" id="whatsapp" name="whatsapp" autocomplete="tel-national" inputmode="numeric" placeholder="(92) 90000-0000" required></label>
-        </div>
-        <label for="trabalho">Sua área (para trazer exemplos dela)
-          <select id="trabalho" name="trabalho" required>
-            <option value="">Escolha uma opção</option>
-            <option>Administrativo</option>
-            <option>Atendimento ao público</option>
-            <option>Operacional</option>
-            <option>Educação e projetos sociais</option>
-            <option>Comunicação e marketing</option>
-            <option>Tecnologia</option>
-            <option>Gestão e liderança</option>
-            <option>Outro</option>
-          </select>
-        </label>
-        <label class="aceite" for="aceite"><input type="checkbox" id="aceite" name="aceite" required><span><strong>Proteção de dados (LGPD).</strong> Autorizo o Instituto Evereste, responsável pelo Evereste Academy, a usar meu nome, idade, área e WhatsApp só para a pré-inscrição e os avisos do curso Agente 01, conforme a Lei 13.709/2018. Posso pedir a exclusão dos meus dados a qualquer momento.</span></label>
-        <button type="submit" class="botao" id="enviar">Garantir meu acesso gratuito</button>
-        <p class="miudo">Sem spam. Só o lembrete da estreia.</p>
+        <label for="whatsapp">Telefone (WhatsApp) com DDD<input type="tel" id="whatsapp" name="whatsapp" autocomplete="tel-national" inputmode="numeric" placeholder="(92) 90000-0000" required></label>
+        <label for="email">E-mail<input type="email" id="email" name="email" autocomplete="email" inputmode="email" placeholder="voce@exemplo.com" required maxlength="120"></label>
+        <label class="aceite" for="aceite"><input type="checkbox" id="aceite" name="aceite" required><span><strong>Proteção de dados (LGPD).</strong> Autorizo o Instituto Evereste, responsável pelo Evereste Academy, a usar meu nome, telefone e e-mail só para a pré-inscrição e para me avisar quando o curso Agente 01 abrir as inscrições, conforme a Lei 13.709/2018. Posso pedir a exclusão dos meus dados a qualquer momento.</span></label>
+        <button type="submit" class="botao" id="enviar">Fazer pré-inscrição</button>
+        <p class="miudo">Sem spam. Só o aviso com o link de inscrição.</p>
         <p class="aviso" id="aviso" role="alert"></p>
       </form>
 
       <div class="sucesso" id="sucesso" tabindex="-1" hidden>
-        <h3 id="sucesso-titulo">Acesso garantido.</h3>
-        <p id="sucesso-texto">Em 1º de dezembro, o link do Evereste Academy chega no seu WhatsApp.</p>
+        <h3 id="sucesso-titulo">Pré-inscrição feita.</h3>
+        <p id="sucesso-texto">Assim que o curso sair, você recebe o link de inscrição no seu e-mail e no seu WhatsApp.</p>
         <p>Conhece alguém que perde a manhã no e-mail? Mande esta página para essa pessoa.</p>
         <a class="botao" id="compartilhar" href="https://wa.me/" target="_blank" rel="noopener">Mandar pelo WhatsApp</a>
         <p>Enquanto o curso não estreia, <a href="https://institutoevereste.github.io/metodo-6m-colaboradores/">leia o ebook Método 6M</a> e já rascunhe o seu agente.</p>
@@ -473,11 +528,16 @@ form .botao { width: 100%; }
   }
 
   /* o convite do WhatsApp leva o endereço desta página, onde quer que ela esteja publicada */
-  el("compartilhar").href = "https://wa.me/?text=" + encodeURIComponent("O Evereste Academy chegou, e o primeiro curso é de IA: monte um agente que trabalha por você todo dia. Gratuito. A pré-inscrição é aqui: " + location.href.split("#")[0]);
+  el("compartilhar").href = "https://wa.me/?text=" + encodeURIComponent("O Evereste Academy chegou, e o primeiro curso é de IA: monte um agente que trabalha com você. Gratuito. A pré-inscrição é aqui: " + location.href.split("#")[0]);
 
-  /* pré-inscrição: grava no mesmo Firestore e na mesma planilha da página do Agente 01, então as duas páginas
-     somam numa lista só. O id do documento é o WhatsApp: o mesmo número não entra duas vezes. As regras do banco
-     só aceitam estes cinco campos, por isso a origem (esta página ou a outra) não fica registrada.
+  /* a colagem da capa é desenhada em 1080 px de largura: em tela estreita ela fica maior que a proporção e os braços saem antes pelas bordas */
+  var palco = d.querySelector(".palco");
+  function escala() { palco.style.setProperty("--k", Math.min(1.25, Math.max(0.62, raiz.clientWidth / 1080))); }
+  escala();
+  window.addEventListener("resize", escala);
+
+  /* pré-inscrição: grava no mesmo Firestore e na mesma planilha da página antiga do Agente 01, então as duas
+     somam numa lista só. O id do documento é o telefone: o mesmo número não entra duas vezes.
      shortcut: sem proteção contra robôs além das regras do banco; se chegar lixo, ligar o App Check. */
   var BANCO = "https://firestore.googleapis.com/v1/projects/agente01-preinscricao/databases/(default)/documents/preinscricoes";
   var CHAVE = "AIzaSyBWJpwf0MJJ8gJCS8NNBwRuwx3nVBp71Cg"; // chave pública do app web (não é segredo)
@@ -494,8 +554,8 @@ form .botao { width: 100%; }
 
   function pronto(nome, jaExistia) {
     form.hidden = true;
-    el("sucesso-titulo").textContent = jaExistia ? "Você já está na lista." : "Acesso garantido, " + nome.split(" ")[0] + ".";
-    if (jaExistia) el("sucesso-texto").textContent = "Este WhatsApp já tem pré-inscrição. Em 1º de dezembro, o link do Evereste Academy chega nele.";
+    el("sucesso-titulo").textContent = jaExistia ? "Você já está na lista." : "Pré-inscrição feita, " + nome.split(" ")[0] + ".";
+    if (jaExistia) el("sucesso-texto").textContent = "Este telefone já tem pré-inscrição. Assim que o curso sair, o link de inscrição chega para você.";
     el("sucesso").hidden = false;
     el("sucesso").focus();
   }
@@ -504,14 +564,17 @@ form .botao { width: 100%; }
     e.preventDefault();
     aviso.textContent = "";
     var n = digitos();
-    whats.setCustomValidity(/^[1-9]\d{9,10}$/.test(n) ? "" : "Informe o WhatsApp com DDD, só números.");
+    whats.setCustomValidity(/^[1-9]\d{9,10}$/.test(n) ? "" : "Informe o telefone com DDD, só números.");
+    var email = el("email").value.trim().toLowerCase();
+    // mesma conferência das regras do banco: precisa de @ e de ponto no domínio
+    el("email").setCustomValidity(/^[^@ ]+@[^@ ]+[.][^@ ]+$/.test(email) ? "" : "Informe um e-mail válido.");
     if (!form.reportValidity()) return;
     var nome = el("nome").value.trim().replace(/\s+/g, " ");
     var dados = { fields: {
       nome: { stringValue: nome },
-      idade: { integerValue: String(parseInt(el("idade").value, 10)) },
-      trabalho: { stringValue: el("trabalho").value },
       whatsapp: { stringValue: n },
+      email: { stringValue: email },
+      curso: { stringValue: "agente01" },
       consentimento: { booleanValue: true }
     } };
     enviar.disabled = true;
@@ -520,7 +583,7 @@ form .botao { width: 100%; }
       .then(function (r) {
         if (r.ok) {
           // aviso à planilha: sem esperar resposta (o Apps Script não libera leitura entre sites); se falhar, o Firestore já tem o registro
-          if (PLANILHA) fetch(PLANILHA, { method: "POST", mode: "no-cors", body: JSON.stringify({ nome: nome, idade: dados.fields.idade.integerValue, trabalho: el("trabalho").value, whatsapp: n }) }).catch(function () {});
+          if (PLANILHA) fetch(PLANILHA, { method: "POST", mode: "no-cors", body: JSON.stringify({ nome: nome, whatsapp: n, email: email, curso: "Agente 01" }) }).catch(function () {});
           pronto(nome, false);
           return;
         }
@@ -530,7 +593,7 @@ form .botao { width: 100%; }
       .catch(function () {
         aviso.textContent = "Não foi possível registrar agora. Confira os dados e tente de novo.";
         enviar.disabled = false;
-        enviar.textContent = "Garantir meu acesso gratuito";
+        enviar.textContent = "Fazer pré-inscrição";
       });
   });
 })();
